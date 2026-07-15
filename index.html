@@ -4,42 +4,66 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <title>日光轨迹支持</title>
+  <meta name="description" content="日光轨迹：日出日落、曙光暮光、3D 太阳轨迹与自驾天气。支持灵动岛、锁屏实时活动、小组件、iPad 和 Apple Watch。">
+  <title>日光轨迹 · 日出日落、太阳轨迹与自驾天气</title>
   <style>
     body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; color: #eef4ff; background: #07111f; }
-    main { max-width: 760px; margin: 0 auto; padding: 40px 20px 64px; }
-    h1, h2 { line-height: 1.25; }
-    h1 { font-size: 32px; margin: 0 0 12px; }
-    h2 { font-size: 20px; margin-top: 32px; }
+    main { max-width: 860px; margin: 0 auto; padding: 48px 20px 64px; }
+    h1 { font-size: 40px; line-height: 1.2; margin: 0 0 8px; }
+    h2 { font-size: 22px; line-height: 1.25; margin-top: 40px; }
     p, li { color: #b8c5d8; }
     a { color: #89bdff; }
-    .updated { color: #90a2bc; font-size: 14px; }
+    .tagline { font-size: 19px; color: #cdd9ea; margin-top: 0; }
+    .hero { display: flex; flex-wrap: wrap; gap: 32px; align-items: center; margin-top: 24px; }
+    .hero-text { flex: 1 1 320px; }
+    .hero-shot { flex: 0 1 280px; }
+    .hero-shot img { width: 100%; max-width: 300px; border-radius: 24px; border: 1px solid #1d3350; display: block; margin: 0 auto; }
+    .badge { display: inline-block; background: #12233c; border: 1px solid #24406a; color: #cdd9ea; border-radius: 999px; padding: 6px 14px; font-size: 14px; margin: 12px 6px 0 0; }
+    ul.features { padding-left: 20px; }
+    ul.features li { margin-bottom: 8px; }
+    footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #16273e; font-size: 14px; color: #90a2bc; }
+    footer a { margin-right: 16px; }
   </style>
 </head>
 <body>
   <main>
-    <h1>日光轨迹支持</h1>
-    <p class="updated">支持页面更新于 2026 年 7 月 14 日</p>
-    <p>日光轨迹是一款面向自驾、摄影、露营和观星场景的太阳轨迹与天气辅助工具。</p>
+    <div class="hero">
+      <div class="hero-text">
+        <h1>日光轨迹</h1>
+        <p class="tagline">日出日落、太阳轨迹与自驾天气。为自驾、摄影、露营和观星的人做的太阳工具。</p>
+        <span class="badge">即将上架 App Store</span>
+        <span class="badge">iPhone · iPad · Apple Watch</span>
+        <span class="badge">灵动岛 · 小组件</span>
+      </div>
+      <div class="hero-shot">
+        <img src="assets/screenshot-iphone.png" alt="日光轨迹 iPhone 截图：日出日落时刻与光照气温图表">
+      </div>
+    </div>
 
-    <h2>联系支持</h2>
-    <p>请发送邮件至 <a href="mailto:fateexploer@gmail.com?subject=%E6%97%A5%E5%85%89%E8%BD%A8%E8%BF%B9%E6%94%AF%E6%8C%81">fateexploer@gmail.com</a>。请附上设备型号、iOS/watchOS 版本、大致区域、App 版本、截图和复现步骤。请不要在邮件中发送身份证件、完整住址或其他不必要的敏感信息。</p>
-
-    <h2>常见问题</h2>
-    <ul>
-      <li><strong>灵动岛或锁屏实时活动不更新：</strong>确认系统已允许实时活动，并重新打开 App 刷新位置。iOS 会根据电量、系统负载和后台策略决定刷新频率。</li>
-      <li><strong>小组件没有内容：</strong>先打开一次主 App 并允许定位，然后长按小组件选择“编辑小组件”或移除后重新添加。</li>
-      <li><strong>天气不显示：</strong>确认网络可用。太阳位置和日出日落可本地计算，但天气预报、地图和周边信息需要联网。</li>
-      <li><strong>指南针方向不准：</strong>在户外远离车辆磁场、充电器和大块金属，允许定位与运动权限，并缓慢移动手机完成系统校准。</li>
-      <li><strong>Apple Watch 看不到 App：</strong>确认手表已与安装日光轨迹的 iPhone 配对，在 iPhone 的 Watch App 中允许安装，并先打开一次 iPhone App。</li>
+    <h2>功能</h2>
+    <ul class="features">
+      <li>日出、日落，以及民用、航海、天文曙光与暮光时间</li>
+      <li>灵动岛与锁屏实时活动，锁屏也能看倒计时</li>
+      <li>桌面和负一屏小组件，Apple Watch 快速查看</li>
+      <li>可旋转、缩放、平移的 3D 太阳轨迹</li>
+      <li>太阳高度、方向与指南针对齐辅助</li>
+      <li>气温、云量、降雨概率、紫外线与光照趋势图表</li>
+      <li>自驾天气、附近补给、道路信息和观星条件辅助</li>
     </ul>
 
-    <h2>数据准确性与安全</h2>
-    <p>日出、日落、曙光、暮光和太阳轨迹由设备本地天文计算得到。气温、云量、降雨、紫外线、道路和周边地点来自第三方公开数据。天气、道路开放状态和光污染估算可能延迟或存在误差，不应作为航行、医疗、灾害或紧急决策的唯一依据；出行前请同时查看当地政府和应急机构发布的信息。</p>
+    <h2>数据与隐私</h2>
+    <p>太阳位置与日出日落由设备本地天文计算完成，不建账号、不投广告、不做追踪。天气与地图数据来自 Open-Meteo、Esri 与 OpenStreetMap 等公开数据源，仅供出行和观察规划参考。详见<a href="privacy.html">隐私政策</a>。</p>
 
-    <h2>隐私</h2>
-    <p>请阅读<a href="https://huobotao.github.io/sunpath-support/privacy.html">日光轨迹隐私政策</a>，了解位置、天气查询、本地缓存和权限管理方式。</p>
-    <p class="updated"><a href="support-en.html">English support</a></p>
+    <h2>支持</h2>
+    <p>使用问题请见<a href="support.html">支持页面</a>，或发送邮件至 <a href="mailto:fateexploer@gmail.com?subject=%E6%97%A5%E5%85%89%E8%BD%A8%E8%BF%B9">fateexploer@gmail.com</a>。</p>
+
+    <footer>
+      <a href="privacy.html">隐私政策</a>
+      <a href="support.html">支持</a>
+      <a href="privacy-en.html">Privacy (English)</a>
+      <a href="support-en.html">Support (English)</a>
+      <div>© 2026 Richard Huo</div>
+    </footer>
   </main>
 </body>
 </html>
