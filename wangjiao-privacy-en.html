@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="How WangJiao handles live camera preview, device sensors, optional true-north location and locally saved measurement points.">
+  <title>WangJiao Privacy Policy</title>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; color: #edf8f5; background: linear-gradient(#071827, #10263a); min-height: 100vh; }
+    main { max-width: 760px; margin: 0 auto; padding: 40px 20px 64px; }
+    h1, h2 { line-height: 1.25; } h1 { font-size: 32px; margin: 0 0 12px; } h2 { font-size: 20px; margin-top: 32px; }
+    p, li { color: #c2d6d0; } a { color: #62ebc3; } .updated { color: #8aa9a2; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>WangJiao Privacy Policy</h1>
+    <p class="updated">Last updated: 20 September 2026</p>
+    <p>WangJiao (望角) is an offline iPhone tool for estimating bearings and elevation angles. It has no accounts, advertising, analytics or third-party tracking SDKs. The app does not send camera, sensor, location or measurement data to a developer server.</p>
+
+    <h2>Camera preview</h2>
+    <p>The rear camera is used only as a live viewfinder to help you aim. WangJiao does not take photos, record video, save camera images or upload them. It does not read your photo library or contacts.</p>
+
+    <h2>Orientation and compass</h2>
+    <p>Device motion and the magnetic-north reference are processed on your device to estimate the camera's bearing, elevation angle and level state. These sensor readings are not sent to the developer. Camera, motion, compass and location updates stop when the app enters the background.</p>
+
+    <h2>Optional location for true north</h2>
+    <p>WangJiao asks for location access while using the app only when you choose to enable true north. The app requests a coarse location fix to help the system determine the difference between magnetic north and true north. It does not save or upload your coordinates. Continuous location updates stop once the bearing correction is available. You can decline location access and continue using magnetic north.</p>
+    <p>You can change camera and location access in iOS Settings at any time. Returning to the app rechecks the relevant permissions. Revoking a permission does not erase measurement points already saved on the device.</p>
+
+    <h2>Saved measurement points</h2>
+    <p>When you tap Mark, WangJiao stores the bearing, elevation angle, time, north reference and a randomly generated record identifier in the app's local settings storage. The identifier distinguishes records; it is not a tracking identifier. Older records without a known north reference are retained and labelled accordingly.</p>
+    <p>Tap a point in the record strip to delete that point, or use the trash button to clear all saved points. Deleting the app removes its local app data; using iOS Offload App retains documents and data.</p>
+
+    <h2>Tracking, external pages and email</h2>
+    <p>WangJiao does not track users or automatically collect their measurement data. Apple may process App Store downloads, system diagnostics or crash reports under its own policies; those services are not controlled by this app.</p>
+    <p>Opening a privacy or support link is optional and uses the system's web handler. These pages are hosted on GitHub Pages, which handles your web request under its own policies. This website does not add analytics scripts, remote media, forms or tracking SDKs.</p>
+    <p>If you choose to email support, your email address and the message or attachments you send are received through the support mailbox and used to handle your request. Email is not sent automatically by the app. Please do not include your full address or other unnecessary sensitive information.</p>
+
+    <h2>Contact</h2>
+    <p>For privacy or permission questions, email <a href="mailto:huobotao@hotmail.com?subject=WangJiao%20Privacy">huobotao@hotmail.com</a> or read the <a href="wangjiao-support-en.html">WangJiao support page</a>.</p>
+    <p class="updated"><a href="wangjiao-privacy.html" lang="zh-Hans">简体中文</a> · <a href="wangjiao-support-en.html">Support</a></p>
+  </main>
+</body>
+</html>

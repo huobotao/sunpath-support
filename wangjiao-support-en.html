@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Help with WangJiao camera aiming, magnetic and true north, saved points, geometric estimates and safety limits.">
+  <title>WangJiao Support</title>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; color: #edf8f5; background: linear-gradient(#071827, #10263a); min-height: 100vh; }
+    main { max-width: 760px; margin: 0 auto; padding: 40px 20px 64px; }
+    h1, h2 { line-height: 1.25; } h1 { font-size: 32px; margin: 0 0 12px; } h2 { font-size: 20px; margin-top: 32px; }
+    p, li { color: #c2d6d0; } a { color: #62ebc3; } .updated { color: #8aa9a2; font-size: 14px; }
+    .notice { border-left: 4px solid #ffc44d; background: #2a271d; padding: 14px 18px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>WangJiao Support</h1>
+    <p class="updated">Last updated: 20 September 2026</p>
+    <p>WangJiao (望角) is an offline iPhone tool for estimating bearings and elevation angles. Use the rear-camera crosshair to aim, mark sensor readings and explore geometric estimates using distances and heights you supply. The app does not measure distance automatically.</p>
+
+    <h2>Mark and compare points</h2>
+    <ol>
+      <li>Aim the center crosshair at one edge of your target and tap <strong>Mark</strong>.</li>
+      <li>Aim at the other edge and mark another point. The panel compares the last two points.</li>
+      <li>Open <strong>Calculator</strong> and set the point's horizontal distance to view estimated width and height difference. Use a common height reference when entering observer and target heights.</li>
+    </ol>
+    <p>Horizontal angle and width comparisons require both points to use magnetic north or both to use true north. Different references cannot be compared horizontally. Older records with an unknown reference are kept, but must be measured again for horizontal comparisons; the vertical angle difference may still be useful. Tap a saved point to delete it, or use the trash button to clear all points.</p>
+
+    <h2>Camera and optional true north</h2>
+    <p>Camera access is for live preview only: no photo or video is recorded. Magnetic north is the default. To request true north, tap the north-reference control or choose <strong>Enable true north</strong> in <strong>How to use</strong>. Location is requested only for this optional correction and is not saved or uploaded. Denying location still allows magnetic-north measurement.</p>
+    <p>If access was denied, open iOS Settings, find WangJiao under Camera or Location Services, and change the relevant permission. The help page also offers <strong>Open Settings</strong> when location access requires it. Return to the app to retry. Turning off camera access removes the live preview; revoking permissions does not delete saved points. Updates stop in the background and resume as applicable when you return.</p>
+
+    <h2>Why is Mark unavailable?</h2>
+    <p>Keep the app in the foreground and wait for a valid orientation and compass reading. The device must have supported motion sensors and a compass. Marking is disabled when the reference or readings are unavailable, compass accuracy is unknown, or the estimated heading error exceeds 25°. Move away from metal, electrical equipment and magnetic accessories. A slow figure-eight motion may help the compass calibrate, but it does not guarantee accuracy.</p>
+
+    <h2>Why is the estimated horizon hidden?</h2>
+    <p>Level the phone from side to side. The estimated horizon is hidden when tilt exceeds about 3.5°, orientation is not ready, or the horizon falls outside the camera view. The line is calculated from device orientation and the camera field of view; it is not a surveyed level.</p>
+
+    <h2>Geometry and line-of-sight limits</h2>
+    <p>Width conversion is unavailable at horizontal angles of 160° or more. Height calculations are unavailable when an elevation angle reaches ±85° or when the inputs are invalid. Reduce the measurement range and mark again if an out-of-range warning appears.</p>
+    <p>The calculator compares elevation angles with a target line of sight. It does not detect real objects, determine actual obstruction, or establish whether a view is clear. Its estimates are useful only when the target and point are in approximately the same direction, distances are horizontal, all heights use the same reference, and terrain and Earth curvature are ignored.</p>
+
+    <div class="notice"><strong>Accuracy and safety:</strong> WangJiao is not a professional surveying instrument. Magnetic interference, device sensors, camera field of view, target direction, terrain and entered values can affect the result. Use readings only for rough on-site estimates, never for surveying, construction, aviation, navigation or safety-critical decisions.</div>
+
+    <h2>Contact support</h2>
+    <p>Email <a href="mailto:huobotao@hotmail.com?subject=WangJiao%20Support">huobotao@hotmail.com</a> with your device model, iOS version, app version and steps to reproduce the problem. You may include a screenshot without private information. Please do not send your full address or unnecessary sensitive information.</p>
+
+    <h2>Privacy and data</h2>
+    <p>Camera, motion, compass and optional location processing stay on the device. Measurement points are stored locally. Web pages and email are opened only when you choose. See the <a href="wangjiao-privacy-en.html">WangJiao Privacy Policy</a> for details.</p>
+    <p class="updated"><a href="wangjiao-support.html" lang="zh-Hans">简体中文</a> · <a href="wangjiao-privacy-en.html">Privacy</a> · <a href="index.html">Other apps</a></p>
+  </main>
+</body>
+</html>
