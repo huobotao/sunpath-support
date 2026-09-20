@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="日轨太阳轨迹实景预览的使用说明、权限与缓存、方向偏差和 Hotmail 支持联系。">
+  <title>使用与支持 · 日轨</title>
+  <style>
+    :root { color-scheme: light dark; --bg: #fbfaf6; --card: #fff; --text: #30281c; --muted: #665e50; --line: #e1d8c7; --link: #775100; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 1.05rem/1.8 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .skip { position: absolute; left: 1rem; top: -5rem; padding: .5rem 1rem; background: var(--card); }
+    .skip:focus { top: 1rem; }
+    header, main, footer { width: min(100% - 2rem, 48rem); margin-inline: auto; }
+    header { padding: 2.5rem 0 1.25rem; }
+    nav { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+    a { color: var(--link); text-underline-offset: .2em; overflow-wrap: anywhere; }
+    a:focus-visible { outline: 3px solid var(--link); outline-offset: 4px; }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.3; margin: .75rem 0; }
+    h2 { font-size: 1.3rem; line-height: 1.5; margin-top: 2rem; }
+    p, ul, ol { margin-block: .75rem; }
+    main { background: var(--card); border: 1px solid var(--line); border-radius: 1rem; padding: clamp(1rem, 4vw, 2rem); }
+    main > :first-child { margin-top: 0; }
+    .muted, footer { color: var(--muted); }
+    .note { padding: 1rem; border-left: 4px solid var(--link); background: var(--bg); }
+    footer { padding: 1.5rem 0 2.5rem; font-size: .92rem; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #201c14; --card: #2d271b; --text: #faf4e8; --muted: #d0c4ad; --line: #554932; --link: #ffd479; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header>
+    <p class="muted">日轨 · RiGui</p>
+    <h1>使用与支持</h1>
+    <p class="muted">文本更新：2026 年 9 月 20 日</p>
+    <nav aria-label="页面导航"><a href="privacy.html">隐私政策</a><a href="support.html" aria-current="page">使用与支持</a></nav>
+  </header>
+  <main id="main">
+    <p>日轨通过后置相机实时预览、设备姿态和位置，在画面上叠加参考太阳轨迹。你可以查看所选日期和时间的太阳方向，以及日出、日落和白昼时长信息。它不拍照、录像或录音，也不保存影像到照片图库。</p>
+    <p class="note">轨迹和方向仅供参考。定位、设备校准状态、磁干扰、手机姿态和算法近似都会影响显示；应用不保证实测精度，不能作为安全导航、专业测量或日照工程判断的依据。</p>
+
+    <h2 id="getting-started">开始使用</h2>
+    <ol>
+      <li>首次使用时，可点“允许相机”并自行选择是否授权。也可以拒绝；拒绝后不会显示实景叠加。</li>
+      <li>系统请求定位时，可选择使用期间允许或拒绝。先检查画面上方的位置来源、更新时间与精度估计，确认计算使用的是新位置、缓存还是悉尼默认位置。</li>
+      <li>竖屏使用手机，查看画面上的太阳轨迹、方向和仰角。没有可用姿态传感器或北向参考不足时，留意应用提示。</li>
+      <li>拖动日期和时间滑块选择参考时刻。“今天”切回当天；“现在”把日期和时间设为当前时刻。选择后不会持续自动跟随实时时钟。</li>
+    </ol>
+
+    <h2 id="dates-and-times">日期、时区与季节参考</h2>
+    <p>日期滑块用于当前年份，时间按设备当前时区解释。旅行后请检查设备日期、时间和时区，也要检查位置是否仍是旧缓存。日出、日落与白昼信息根据当前采用的经纬度计算，不包含建筑、山体或树木遮挡评估。</p>
+    <p>“夏至”“冬至”“春分”“秋分”用于切换预设季节参考日期，并按当前纬度区分南北半球；它们不是精确节气时刻查询。没有日出或日落结果的情况需结合地点和日期理解，不能把缺失结果当作现场光照保证。</p>
+
+    <h2 id="camera-permission">拒绝相机或从设置返回</h2>
+    <p>相机权限不可用时，应用显示说明和“打开设置”。你可以在系统设置中开启或关闭相机权限；回到前台时，日轨重新读取授权状态。若系统仍不提供相机画面，请先检查权限、相机是否被其他功能占用，并记录设备与系统版本联系支持。</p>
+    <p>相机与定位是分别管理的权限。拒绝相机不会自动撤销定位；需要时请分别在系统设置中调整。</p>
+
+    <h2 id="location-help">位置不对、定位被拒绝或更新失败</h2>
+    <p>“缓存位置”是先前保存的位置；“旧定位”表示当前样本已经超过新鲜度窗口；“悉尼（默认位置）”表示尚无可用位置。五分钟内的更新标记不能证明你仍在原地，界面里的“±…米”是系统提供的精度估计。</p>
+    <p>拒绝或撤销定位后，日轨仍可能用已有缓存计算，并显示权限不可用提示。撤销权限不会自动清除缓存。</p>
+    <p>想更新位置时，请先在系统设置中检查日轨的定位权限，再返回应用；已有授权时，应用会请求一次新位置。定位仍失败时会继续使用标注的位置。当前版本没有手动选择城市、连续行程记录或独立的“清除定位缓存”功能。</p>
+
+    <h2 id="direction-help">方向偏差与方位微调</h2>
+    <p>真北参考不可用时可能使用磁北，设备传感器状态和周围磁干扰可能使轨迹与真实方向不一致。先核对位置、日期和时间；尽量远离磁性配件及明显的磁干扰源，并按设备自身的提示检查校准状态。不要把一次对齐当作长期精度保证。</p>
+    <p>点“方位微调”可在 −25° 至 +25° 范围内手动调整方位偏移，设置会保存在本机。点“归零”只将此偏移恢复到 0°，不会校准设备硬件或删除位置数据。应用没有专业校准、场景扫描或现场测量功能。</p>
+
+    <h2 id="local-data">本机数据与网页</h2>
+    <p>日轨在本机保存最近一次有效位置、样本时间、精度估计和方位微调值，没有开发者账号、广告、行为分析或开发者上传服务器。应用没有单独删除缓存的按钮；如需移除本机应用数据，请参阅<a href="privacy.html#control-and-deletion">权限、缓存与移除数据</a>，注意“删除 App”与保留数据的“卸载 App”不同。</p>
+    <p>访问通过 GitHub Pages 托管的政策或支持网页时，托管方会为安全目的处理访问 IP；主动发送支持邮件时，邮件服务和收件方会处理你发送的内容。更多说明见<a href="privacy.html">隐私政策</a>。</p>
+
+    <h2 id="email-support">联系支持</h2>
+    <p>请写信至 <a href="mailto:huobotao@hotmail.com">huobotao@hotmail.com</a>。点击链接只会请求打开邮件应用；邮件由你决定是否发送。如未打开邮件应用，可以复制地址后自行写信。</p>
+    <p>为便于排查，建议提供设备型号、iOS 版本、应用版本、操作步骤和实际提示。可说明位置来源标记及是否出现真北或传感器提示，无须先发送精确坐标或私人相机画面。必要的截图请先遮盖坐标、地址、人物和其他私人信息。</p>
+    <p>请勿发送密码或验证码。支持邮件的处理方式见<a href="privacy.html#contact">主动发送的支持邮件</a>。</p>
+  </main>
+  <footer><p>日轨 · <a href="privacy.html">隐私政策</a> · <a href="support.html">使用与支持</a></p></footer>
+</body>
+</html>

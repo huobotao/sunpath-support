@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="日轨隐私政策：实时相机预览、本机位置缓存、姿态、方位校正、网页托管与主动支持邮件。">
+  <title>隐私政策 · 日轨</title>
+  <style>
+    :root { color-scheme: light dark; --bg: #fbfaf6; --card: #fff; --text: #30281c; --muted: #665e50; --line: #e1d8c7; --link: #775100; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 1.05rem/1.8 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .skip { position: absolute; left: 1rem; top: -5rem; padding: .5rem 1rem; background: var(--card); }
+    .skip:focus { top: 1rem; }
+    header, main, footer { width: min(100% - 2rem, 48rem); margin-inline: auto; }
+    header { padding: 2.5rem 0 1.25rem; }
+    nav { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+    a { color: var(--link); text-underline-offset: .2em; overflow-wrap: anywhere; }
+    a:focus-visible { outline: 3px solid var(--link); outline-offset: 4px; }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.3; margin: .75rem 0; }
+    h2 { font-size: 1.3rem; line-height: 1.5; margin-top: 2rem; }
+    p, ul, ol { margin-block: .75rem; }
+    main { background: var(--card); border: 1px solid var(--line); border-radius: 1rem; padding: clamp(1rem, 4vw, 2rem); }
+    main > :first-child { margin-top: 0; }
+    .muted, footer { color: var(--muted); }
+    .note { padding: 1rem; border-left: 4px solid var(--link); background: var(--bg); }
+    footer { padding: 1.5rem 0 2.5rem; font-size: .92rem; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #201c14; --card: #2d271b; --text: #faf4e8; --muted: #d0c4ad; --line: #554932; --link: #ffd479; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header>
+    <p class="muted">日轨 · RiGui</p>
+    <h1>隐私政策</h1>
+    <p class="muted">文本更新：2026 年 9 月 20 日</p>
+    <nav aria-label="页面导航"><a href="privacy.html" aria-current="page">隐私政策</a><a href="support.html">使用与支持</a></nav>
+  </header>
+  <main id="main">
+    <p>本政策说明日轨如何使用相机、位置和设备姿态来显示参考太阳轨迹，以及本机缓存、网页访问和支持邮件涉及的数据。</p>
+
+    <h2 id="local-processing">设备上的计算</h2>
+    <p>太阳位置、日期轨迹和画面叠加在你的设备上计算。本版本没有开发者账号注册或登录、广告、行为分析或开发者服务器，也没有将相机画面、位置、姿态或校正值发送给开发者的功能。</p>
+    <p>应用本身未接入地图、云同步或第三方分析服务。设备定位等系统服务的运行、系统备份与恢复由 Apple 和你的系统设置管理；本政策不表示设备或这些系统服务完全不使用网络。</p>
+
+    <h2 id="camera">相机：仅作实时预览</h2>
+    <p>日轨使用后置相机的实时画面作为背景，并在画面上叠加计算出的太阳轨迹。本版本没有拍照、录像、录音、保存到照片图库或上传影像的功能；没有请求麦克风或照片图库访问权限。</p>
+    <p>你可以不点“允许相机”，也可以拒绝系统请求。没有相机权限时，应用不能显示实景叠加，会显示权限说明。可以通过应用的“打开设置”入口或系统设置更改授权；回到应用前台时会重新读取相机权限。</p>
+
+    <h2 id="location">定位与本机位置缓存</h2>
+    <p>应用请求使用期间定位权限，以取得用于太阳轨迹计算的经纬度。成功取得有效位置后，会在本机应用数据中保存经纬度、定位样本时间和系统报告的水平精度估计，供下次打开时使用。应用保存最近一次有效位置，不建立行程或位置历史列表。</p>
+    <p>界面区分“定位”“缓存位置”“旧定位”和“悉尼（默认位置）”，并在可用时显示更新时间与精度估计。五分钟内的样本可显示为近期更新；这个时间标记不保证你仍在该位置，精度估计也不等于测量保证。旧版本留下的缓存可能没有时间或精度信息，应用会标明时间未知。</p>
+    <p>你可以拒绝定位或稍后在系统设置中撤销。未取得有效新位置、定位失败或权限不可用时，应用保留并标注已有缓存；没有可用缓存时采用悉尼默认坐标。撤销权限不会自动删除之前保存在本机的坐标，也不会使缓存变成你的当前位置。</p>
+
+    <h2 id="motion">姿态与方位微调</h2>
+    <p>应用在设备上读取运动传感器提供的姿态信息，用于估计相机朝向和仰角，并尝试使用真北参考；真北参考不可用时可能使用磁北参考。姿态数据用于当前画面，不由应用保存为运动记录或传送给开发者。</p>
+    <p>“方位微调”设置的角度偏移单独保存在本机，用于后续显示。“归零”只把此角度偏移恢复为零，不会删除定位缓存，也不是硬件传感器校准。</p>
+
+    <h2 id="control-and-deletion">权限、缓存与移除数据</h2>
+    <p>你可以在 iPhone 的系统设置中管理日轨的相机和定位权限。拒绝相机不等于拒绝定位；请分别检查相应权限。应用没有内置的单独清除定位缓存按钮，没有开发者账户，也没有可由开发者远程读取或删除本机缓存的接口。</p>
+    <p>系统的“删除 App”会移除应用及其本机数据，“卸载 App”则保留文稿与数据（见 <a href="https://support.apple.com/en-au/108429">Apple 说明</a>），系统备份请另行管理。</p>
+
+    <h2 id="website">本政策、支持网页与托管服务</h2>
+    <p>当你主动打开通过 GitHub Pages 托管的政策或支持网页时，浏览器需要向 GitHub 请求页面。GitHub 说明，GitHub Pages 会为安全目的记录并保存访问者的 IP 地址，即使访问者未登录 GitHub。网页访问与日轨在设备内计算太阳轨迹是不同的数据处理场景。</p>
+    <p>这两页没有开发者设置的分析脚本、远程字体、广告、表单或其他自动加载的第三方素材。你点击外部链接后，相应网站适用其自身规则。详见 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">GitHub Pages 数据说明</a>及 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub 隐私声明</a>。</p>
+
+    <h2 id="contact">主动发送的支持邮件</h2>
+    <p>支持邮箱：<a href="mailto:huobotao@hotmail.com">huobotao@hotmail.com</a>。点击邮箱链接只会请求打开邮件应用，不会自动发送邮件。</p>
+    <p>如果你主动发送邮件，你的发件地址、正文和自行添加的附件会由邮件服务与支持收件方处理，以回复你提出的问题。Hotmail 邮箱使用 Microsoft 的邮件服务；相关服务也按其各自规则处理邮件。支持邮件不属于应用自动上传的数据。</p>
+    <p>请不要发送密码、验证码或无关私人资料。排查问题通常不需要你的精确坐标或相机原始画面；如需截图，请先遮盖坐标和私人场景。关于你曾主动发送的邮件，可通过同一邮箱提出查询或删除请求，邮件服务及备份的处理仍受相应服务机制影响。</p>
+
+    <h2 id="updates">说明更新</h2>
+    <p>数据处理方式变化时会相应更新本页。可通过上方日期识别文本版本；使用问题见<a href="support.html">使用与支持</a>。</p>
+  </main>
+  <footer><p>日轨 · <a href="privacy.html">隐私政策</a> · <a href="support.html">使用与支持</a></p></footer>
+</body>
+</html>
