@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Help with SunArc’s live-camera sun-path preview, permissions and caching, direction differences, and Hotmail support contact.">
+  <title>Help &amp; Support · SunArc</title>
+  <style>
+    :root { color-scheme: light dark; --bg: #fbfaf6; --card: #fff; --text: #30281c; --muted: #665e50; --line: #e1d8c7; --link: #775100; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 1.05rem/1.8 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .skip { position: absolute; left: 1rem; top: -5rem; padding: .5rem 1rem; background: var(--card); }
+    .skip:focus { top: 1rem; }
+    header, main, footer { width: min(100% - 2rem, 48rem); margin-inline: auto; }
+    header { padding: 2.5rem 0 1.25rem; }
+    nav { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+    a { color: var(--link); text-underline-offset: .2em; overflow-wrap: anywhere; }
+    a:focus-visible { outline: 3px solid var(--link); outline-offset: 4px; }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.3; margin: .75rem 0; }
+    h2 { font-size: 1.3rem; line-height: 1.5; margin-top: 2rem; }
+    p, ul, ol { margin-block: .75rem; }
+    main { background: var(--card); border: 1px solid var(--line); border-radius: 1rem; padding: clamp(1rem, 4vw, 2rem); }
+    main > :first-child { margin-top: 0; }
+    .muted, footer { color: var(--muted); }
+    .note { padding: 1rem; border-left: 4px solid var(--link); background: var(--bg); }
+    footer { padding: 1.5rem 0 2.5rem; font-size: .92rem; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #201c14; --card: #2d271b; --text: #faf4e8; --muted: #d0c4ad; --line: #554932; --link: #ffd479; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <p class="muted">SunArc (RiGui / 日轨)</p>
+    <h1>Help &amp; Support</h1>
+    <p class="muted">Text updated: 20 September 2026</p>
+    <nav aria-label="Page navigation"><a href="privacy-en.html">Privacy Policy</a><a href="support-en.html" aria-current="page">Help &amp; Support</a></nav>
+    <p class="muted">Read in Chinese: <a href="privacy.html" lang="zh-Hans">中文隐私政策</a> · <a href="support.html" lang="zh-Hans">中文使用与支持</a></p>
+  </header>
+  <main id="main">
+    <p>SunArc uses a live rear-camera preview, device orientation and location to overlay a reference sun path. You can view the sun’s direction for a selected date and time, along with sunrise, sunset and daylight duration. It does not take photos, record video or audio, or save images to the photo library.</p>
+    <p class="note">Paths and directions are for reference only. Location, device calibration, magnetic interference, phone orientation and algorithmic approximations can all affect the display. The app does not guarantee measured accuracy and must not be used as a basis for safety navigation, professional measurement or solar-access engineering decisions.</p>
+
+    <h2 id="getting-started">Getting started</h2>
+    <ol>
+      <li>On first use, you can tap “Allow Camera” and choose whether to grant access. You can also deny it; the overlay on the live view will then be unavailable.</li>
+      <li>When the system requests your location, you can allow access while using the app or deny it. Check the location source, update time and accuracy estimate at the top of the screen to see whether calculations use a new location, a cached location or the default Sydney location.</li>
+      <li>Hold the phone in portrait orientation to view the sun path, direction and elevation angle. Pay attention to the app’s notices if motion sensors are unavailable or its north reference is insufficient.</li>
+      <li>Drag the date and time sliders to choose a reference time. “Today” switches to today’s date; “Now” sets both date and time to the current moment. After selection, the time does not keep following the live clock automatically.</li>
+    </ol>
+
+    <h2 id="dates-and-times">Dates, time zones and seasonal references</h2>
+    <p>The date slider covers the current year, and times are interpreted in the device’s current time zone. After travelling, check the device’s date, time and time zone, as well as whether the location is still an old cache. Sunrise, sunset and daylight information are calculated from the coordinates currently in use; they do not assess obstruction by buildings, hills or trees.</p>
+    <p>“Summer solstice”, “Winter solstice”, “Spring equinox” and “Autumn equinox” select preset seasonal reference dates, with the hemisphere determined from the latitude currently in use. They are not a lookup of exact astronomical event times. Missing sunrise or sunset results must be interpreted in the context of the location and date; they are not a guarantee of actual light conditions.</p>
+
+    <h2 id="camera-permission">Denying camera access or returning from Settings</h2>
+    <p>When camera permission is unavailable, the app displays an explanation and “Open Settings”. You can enable or disable camera access in system settings. SunArc reads the permission status again when it returns to the foreground. If the system still does not provide a camera view, check the permission and whether another feature is using the camera, then record your device and system version when contacting support.</p>
+    <p>Camera and location permissions are managed separately. Denying camera access does not automatically revoke location access; adjust each one in system settings if needed.</p>
+
+    <h2 id="location-help">Wrong location, denied access or failed updates</h2>
+    <p>“Cached location” is a previously saved location. “Old location” means the current sample is outside the freshness window. “Sydney (default)” means that no usable location has been obtained. A label showing an update within five minutes does not prove that you are still there. The “±… m” shown in the interface is an accuracy estimate from the system.</p>
+    <p>After location access is denied or revoked, SunArc may continue calculating with its existing cache and display a notice that permission is unavailable. Revoking permission does not automatically clear the cache.</p>
+    <p>To update your location, first check SunArc’s location permission in system settings, then return to the app. If access is already authorised, the app requests one new location. If the update still fails, it continues using the labelled location. This version has no manual city selector, continuous journey log or separate “Clear location cache” feature.</p>
+
+    <h2 id="direction-help">Direction differences and azimuth adjustment</h2>
+    <p>A magnetic-north reference may be used when true north is unavailable. Sensor conditions and nearby magnetic interference can make the displayed path differ from the actual direction. First check the location, date and time. Where possible, move away from magnetic accessories and obvious interference sources, and follow the device’s own prompts to check calibration. Do not treat a single alignment as a guarantee of lasting accuracy.</p>
+    <p>“Adjust bearing” lets you manually set an offset from −25° to +25°, which is saved locally. “Reset” only returns this offset to 0°; it does not calibrate device hardware or delete location data. The app has no professional calibration, scene-scanning or field-measurement feature.</p>
+
+    <h2 id="local-data">Local data and web pages</h2>
+    <p>SunArc stores the most recent valid location, sample timestamp, accuracy estimate and azimuth adjustment on the device. It has no developer account, advertising, behavioural analytics or developer upload server. There is no separate cache-deletion button. To remove local app data, see <a href="privacy-en.html#control-and-deletion">Permissions, cache and removing data</a>, and note the difference between “Delete App” and “Offload App”, which keeps data.</p>
+    <p>When you visit policy or support pages hosted on GitHub Pages, the host processes the visitor’s IP address for security purposes. If you choose to send a support email, the email service and recipient process what you send. See the <a href="privacy-en.html">Privacy Policy</a> for details.</p>
+
+    <h2 id="email-support">Contact support</h2>
+    <p>Please email <a href="mailto:huobotao@hotmail.com">huobotao@hotmail.com</a>. Selecting the link only asks your device to open an email app; you decide whether to send the message. If no email app opens, you can copy the address and write an email yourself.</p>
+    <p>To help troubleshoot, include your device model, iOS version, app version, the steps you took and the notice you actually saw. You can describe the location-source label and any true-north or sensor notice without first sending precise coordinates or private camera images. Before sharing any necessary screenshot, hide coordinates, addresses, people and other private information.</p>
+    <p>Please do not send passwords or verification codes. For how support emails are handled, see <a href="privacy-en.html#contact">Support emails you choose to send</a>.</p>
+  </main>
+  <footer><p>SunArc (RiGui / 日轨) · <a href="privacy-en.html">Privacy Policy</a> · <a href="support-en.html">Help &amp; Support</a></p></footer>
+</body>
+</html>
