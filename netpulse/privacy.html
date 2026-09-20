@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NetPulse 候选版本工具说明：设备网络估算、可选照片统计、主动 iCloud 探测及其局限和数据处理。">
+  <title>隐私政策 · NetPulse</title>
+  <style>
+    :root { color-scheme: light dark; --bg: #f7fafb; --card: #fff; --text: #182c34; --muted: #52656e; --line: #cddce2; --link: #006a83; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 1.05rem/1.8 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .skip { position: absolute; left: 1rem; top: -5rem; padding: .5rem 1rem; background: var(--card); }
+    .skip:focus { top: 1rem; }
+    header, main, footer { width: min(100% - 2rem, 48rem); margin-inline: auto; }
+    header { padding: 2.5rem 0 1.25rem; }
+    nav { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+    a { color: var(--link); text-underline-offset: .2em; overflow-wrap: anywhere; }
+    a:focus-visible { outline: 3px solid var(--link); outline-offset: 4px; }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.3; margin: .75rem 0; }
+    h2 { font-size: 1.3rem; line-height: 1.5; margin-top: 2rem; }
+    p, ul { margin-block: .75rem; }
+    main { background: var(--card); border: 1px solid var(--line); border-radius: 1rem; padding: clamp(1rem, 4vw, 2rem); }
+    main > :first-child { margin-top: 0; }
+    .muted, footer { color: var(--muted); }
+    .note { padding: 1rem; border-left: 4px solid var(--link); background: var(--bg); }
+    footer { padding: 1.5rem 0 2.5rem; font-size: .92rem; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #102129; --card: #172f39; --text: #ecf4f7; --muted: #b3c8d2; --line: #385560; --link: #84d9ed; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">跳至正文</a>
+  <header>
+    <p class="muted">NetPulse · 候选版本说明</p>
+    <h1>隐私政策</h1>
+    <p class="muted">文本更新：2026 年 9 月 20 日</p>
+    <nav aria-label="页面导航"><a href="privacy.html" aria-current="page">隐私政策</a><a href="support.html">帮助与支持</a><a href="privacy-en.html" hreflang="en">English</a></nav>
+  </header>
+  <main id="main">
+    <p class="note">候选版本工具说明，不是 App Store 上线公告。目前生产环境的 iCloud/CloudKit 配置、最终签名及真机验收尚未完成。功能是否可用取决于签名版本、设备、账号、网络和 Apple 服务，本页不承诺所有设备都能使用全部功能。</p>
+<p>本说明涵盖 NetPulse 候选版本已实现的数据处理：设备网络接口估算、可选照片库统计及用户主动启动的云端上传探测。本说明不表示 App Store 隐私答案或上架已经获批。</p>
+<section aria-labelledby="local"><h2 id="local">网络观测在设备上处理</h2>
+<p>NetPulse 读取设备网络接口的字节计数器和链路状态，用于估算上下行速率、显示近期曲线及本进程采样会话的累计值。它不检查网络包内容、浏览记录或各个 App 的通信内容。读数可能包含其他 App 和系统服务；接口计数可能缺失或重置，低读数或零值不能证明设备或 iCloud 没有上传。</p>
+<p>这些读数、活动参考和可选照片统计在设备内存中处理。此候选版本没有开发者账号注册、广告 SDK、行为分析或向开发者服务器发送这些读数的功能。下述云端主动探测确实会向 Apple 上传数据，因此不能称为完全离线，也不能称为没有任何上传。</p></section>
+<section aria-labelledby="photos"><h2 id="photos">可选照片库统计</h2>
+<p>仅在你选择照片统计操作时请求照片权限；如果此前已经授权，App 可以刷新统计。它查询你授权可见范围内照片、视频项目的数量及其中近 24 小时创建的项目数，不请求图片或视频字节、缩略图或媒体播放，也不编辑或删除照片库。</p>
+<p>统计不包含隐藏项目，连拍按照片库返回规则计数。有限授权仅涵盖系统允许访问的项目，不代表整个照片库。拒绝照片权限仍可查看网络采样。创建时间和数量不能确定待上传、已同步、iCloud 照片队列、总字节数或剩余量；照片权限可在设备的系统设置中管理。</p></section>
+<section aria-labelledby="drive"><h2 id="drive">iCloud Drive 探测会上传随机文件</h2>
+<p>只有你启动 Drive 探测后，App 才检查是否有可用的 iCloud 身份、解析自己的 iCloud Drive 容器，并在其中创建随机测试文件。默认载荷为 8 MiB（8,388,608 字节）。App 观察该文件的系统上传状态，并估算含系统调度等待的平均吞吐量，不遍历你的个人云盘文档，也不用它们做测试数据。</p>
+<p>Apple 的 iCloud 服务处理生成的文件及相关服务请求。主动探测消耗网络流量和存储空间，可能受到计费网络、账号配额及系统调度影响；结果不是整个 iCloud 队列的进度、大小、剩余量或速度。</p></section>
+<section aria-labelledby="cloudkit"><h2 id="cloudkit">CloudKit 探测使用本 App 的私有数据库</h2>
+<p>仅当你主动启动 CloudKit 探测时，已配置的版本才联系 Apple 检查 CloudKit 账号可用性，并取得该账号的 CloudKit 用户记录标识。该标识仅保留在内存中，用来在操作前后检查账号是否一致；它不是密码或验证码，此候选版本不会把它发送到开发者服务器。</p>
+<p>App 在本地创建默认 5 MiB（5,242,880 字节）的随机测试文件，再将它作为资源保存到你账号下本 App 的 CloudKit 私有数据库的新记录中。记录包含创建时间、载荷大小、随机记录名及独立的每次探测随机归属标记。归属标记用于在删除前确认准确记录属于本次探测，不是广告标识或登录凭据。</p>
+<p>Apple 处理测试资源、记录字段、账号检查及相关服务请求。App 用载荷大小除以整次保存耗时，包含连接及元数据保存开销；它只代表这一次测试，不代表所有 iCloud 上传。发布前必须验证容器、账号关联、生产环境数据结构及实际签名能力。Apple 对 iCloud 和 CloudKit 的处理可参阅 <a href="https://www.apple.com/privacy/features/">Apple 隐私说明</a>。</p></section>
+<section aria-labelledby="cleanup"><h2 id="cleanup">取消、清理与可能残留的数据</h2>
+<p>App 尝试删除自己创建的准确 Drive 测试文件；CloudKit 则尝试删除归属匹配的准确测试记录和本地临时文件。清理失败时会显示状态，并在同一运行进程内提供重试；该模块在待清理状态下不能开始新探测。它不会扫描无关文件、遍历用户记录或删除整个 CloudKit 数据区。</p>
+<p>取消是一项请求，不保证已发送的网络请求立即停止。App 进入后台时会请求取消主动探测，但系统挂起可能使清理无法完成。上传结果不明确时，即使后续暂未找到记录，也可能继续保持待清理状态。</p>
+<p>归属信息及待清理状态只保存在内存中。强制退出、崩溃或重启可能遗留测试数据，当前未实现跨启动自动恢复。退出或卸载 App 不保证云端数据立即消失或配额立即归还，云端空间回收由 Apple 处理。如果仍有清理重试操作，请保留原账号并使用该操作；重启后如有残留疑问，请联系支持，不要删除无关资料。</p></section>
+<section aria-labelledby="contact"><h2 id="contact">支持邮件与隐私请求</h2>
+<p>支持邮箱：<a href="mailto:huobotao@hotmail.com">huobotao@hotmail.com</a>。链接只请求打开邮件 App，不会自动发送。若你主动发送邮件，发件地址、正文及你选择附加的文件会由你的邮件服务商、支持收件人及收件方 Hotmail/Outlook.com 服务处理；相关服务适用各自规则，可参阅 <a href="https://www.microsoft.com/en-us/privacy/privacystatement">Microsoft 隐私声明</a>。</p>
+<p>请不要发送密码、验证码、Apple 账号标识、私人照片或无关文件；截图和错误信息应先遮盖私人信息。你可向同一邮箱咨询或请求删除支持邮件，但邮件服务的保留、备份及处理机制仍适用。发送支持请求不赋予开发者远程访问你设备或私有云端数据的权限。</p></section>
+<section aria-labelledby="website"><h2 id="website">网站及外部链接</h2>
+<p>通过 GitHub Pages 提供隐私与支持页面时，GitHub 会出于安全目的记录访问者的 IP 地址，未登录者也包括在内；详见 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">GitHub Pages 数据收集说明</a>。本页不添加脚本、表单、分析工具、广告或外部嵌入媒体。</p>
+<p>仅当你点击链接时才打开其他网站；这些网站及浏览器可能处理正常网页请求数据。访问网页与在 App 内运行功能是不同的数据处理活动。页面日期标识当前文本版本，App 的数据处理改变时也需要重新核对本说明。</p></section>
+  </main>
+  <footer><p>NetPulse · <a href="support.html">帮助与支持</a></p></footer>
+</body>
+</html>

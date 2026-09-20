@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Candidate NetPulse tool documentation: device network estimates, optional photo counts and user-started iCloud probes, with limitations and data handling.">
+  <title>Privacy Policy · NetPulse</title>
+  <style>
+    :root { color-scheme: light dark; --bg: #f7fafb; --card: #fff; --text: #182c34; --muted: #52656e; --line: #cddce2; --link: #006a83; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 1.05rem/1.8 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .skip { position: absolute; left: 1rem; top: -5rem; padding: .5rem 1rem; background: var(--card); }
+    .skip:focus { top: 1rem; }
+    header, main, footer { width: min(100% - 2rem, 48rem); margin-inline: auto; }
+    header { padding: 2.5rem 0 1.25rem; }
+    nav { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+    a { color: var(--link); text-underline-offset: .2em; overflow-wrap: anywhere; }
+    a:focus-visible { outline: 3px solid var(--link); outline-offset: 4px; }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.3; margin: .75rem 0; }
+    h2 { font-size: 1.3rem; line-height: 1.5; margin-top: 2rem; }
+    p, ul { margin-block: .75rem; }
+    main { background: var(--card); border: 1px solid var(--line); border-radius: 1rem; padding: clamp(1rem, 4vw, 2rem); }
+    main > :first-child { margin-top: 0; }
+    .muted, footer { color: var(--muted); }
+    .note { padding: 1rem; border-left: 4px solid var(--link); background: var(--bg); }
+    footer { padding: 1.5rem 0 2.5rem; font-size: .92rem; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #102129; --card: #172f39; --text: #ecf4f7; --muted: #b3c8d2; --line: #385560; --link: #84d9ed; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <p class="muted">NetPulse · Candidate documentation</p>
+    <h1>Privacy Policy</h1>
+    <p class="muted">Text updated: 20 September 2026</p>
+    <nav aria-label="Page navigation"><a href="privacy-en.html" aria-current="page">Privacy Policy</a><a href="support-en.html">Help &amp; Support</a><a href="privacy.html" hreflang="zh-Hans">简体中文</a></nav>
+  </header>
+  <main id="main">
+    <p class="note">Candidate-version tool documentation — not an App Store release announcement. Production iCloud/CloudKit configuration, final signing and testing on real devices have not been accepted yet. Availability can vary with the signed build, device, account, network and Apple services; this page does not promise that every feature works on every device.</p>
+<p>This explanation covers the data handling implemented for the NetPulse candidate: device-interface estimates, optional photo-library counts and user-started cloud upload probes. It is not a declaration that App Store privacy answers or a release have been approved.</p>
+<section aria-labelledby="local"><h2 id="local">Network observations stay on the device</h2>
+<p>NetPulse reads device network-interface byte counters and link status to estimate upload/download rates, show a recent chart and calculate totals for the current process sampling session. It does not inspect packet content, browser history or individual apps' traffic. Rates may include other apps and system services; interface data may be incomplete or reset. Low or zero readings do not establish that the device or iCloud is idle.</p>
+<p>These readings, the activity reference and optional photo counts are processed in memory on the device. This candidate has no developer account registration, advertising SDK, behavioural analytics or feature that sends these readings to a developer server. Cloud probes described below do upload data to Apple, so the app is not entirely offline and does not promise that no data is uploaded.</p></section>
+<section aria-labelledby="photos"><h2 id="photos">Optional photo-library statistics</h2>
+<p>Photo access is requested only when you choose the photo-statistics action. If access was previously granted, the app can refresh the counts. It queries the number of photo/video items visible within your permission scope and the number with a creation time in the last 24 hours. It does not request image/video bytes, thumbnails or media playback and does not edit or delete your library.</p>
+<p>Hidden items are excluded and burst items follow the library's counting rules. Limited access covers only the items the system makes available, not your entire library. You can decline photo access and still view network sampling. Creation dates and counts cannot identify pending uploads, completed sync, the iCloud Photos queue, total bytes or remaining bytes. Permissions can be managed in the device's system settings.</p></section>
+<section aria-labelledby="drive"><h2 id="drive">An iCloud Drive test uploads a generated file</h2>
+<p>Only when you start the Drive probe, the app checks whether an iCloud identity is available, resolves its own iCloud Drive container and creates a randomly generated test file there. The default payload is 8 MiB (8,388,608 bytes). The probe observes that file's system-reported upload state and estimates its average throughput, including system scheduling delays. It does not enumerate your personal Drive documents or use them as test data.</p>
+<p>Apple's iCloud service processes the generated file and associated service requests. An active probe consumes network data and storage and can be affected by metered connections, account limits and system scheduling. It does not report the progress, size, remaining data or speed of the system-wide iCloud queue.</p></section>
+<section aria-labelledby="cloudkit"><h2 id="cloudkit">A CloudKit test uses the app's private database</h2>
+<p>Only after you start a CloudKit probe, a configured build contacts Apple to check CloudKit account availability and obtains the account's CloudKit user-record identifier. The identifier is kept in memory for account-consistency checks before and after operations. It is not your password or verification code, and this candidate does not send it to a developer server.</p>
+<p>The app creates a random local test file, by default 5 MiB (5,242,880 bytes), and saves it as an asset in a new record in this app's CloudKit private database for your account. The record includes its creation time, payload size, a random record name and a separate random per-probe ownership token. The token is used to verify that an exact record belongs to the current probe before deletion; it is not an advertising identifier or sign-in credential.</p>
+<p>Apple processes the test asset, record fields, account checks and related service requests. The app divides the payload size by the duration of the save operation, which includes connection and metadata overhead. It is a single test result, not a measure of every iCloud upload. The CloudKit container, account association, Production schema and signed capabilities must be verified before release. Apple's handling of iCloud and CloudKit is explained in <a href="https://www.apple.com/privacy/features/">Apple's privacy information</a>.</p></section>
+<section aria-labelledby="cleanup"><h2 id="cleanup">Cancellation, cleanup and possible residual data</h2>
+<p>The app attempts to remove the exact Drive test file it created and, for CloudKit, the exact matching test record and local temporary file. Cleanup failures remain visible and provide a retry within the same running process. A pending cleanup prevents a new probe in that module. It does not scan unrelated files, enumerate user records or delete a whole CloudKit zone.</p>
+<p>Cancellation is a request, not a guarantee that an already-sent request stops. Moving the app to the background requests cancellation of active probes; system suspension may prevent cleanup from finishing. A save with an uncertain outcome can remain pending even if a later check cannot find the record.</p>
+<p>Ownership and pending-cleanup tracking exist only in memory. Force-quitting, a crash or a restart can leave test data behind, and automatic recovery across launches is not implemented. Quitting or uninstalling the app does not guarantee immediate removal of cloud data or return of storage quota. Cloud storage reclamation is handled by Apple. If retry remains available, keep the original account and use that retry; after a restart, contact support about the remaining state rather than deleting unrelated data.</p></section>
+<section aria-labelledby="contact"><h2 id="contact">Support email and privacy requests</h2>
+<p>Support: <a href="mailto:huobotao@hotmail.com">huobotao@hotmail.com</a>. The link opens your mail app; it does not send automatically. If you choose to send email, your sender address, message and chosen attachments are handled by your mail provider, the support recipient and the recipient's Hotmail/Outlook.com service. These services process data under their own rules; see the <a href="https://www.microsoft.com/en-us/privacy/privacystatement">Microsoft Privacy Statement</a>.</p>
+<p>Please do not send passwords, verification codes, Apple account identifiers, private photos or unrelated personal files. Redact screenshots and error messages. You can use this address to ask about or request deletion of support correspondence; mail-provider retention, backups and service mechanisms also apply. A support request does not give the developer remote access to your device or private cloud data.</p></section>
+<section aria-labelledby="website"><h2 id="website">This website and external links</h2>
+<p>When these privacy and support pages are served by GitHub Pages, GitHub records visitors' IP addresses for security, including visitors who are not signed in. See <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">GitHub Pages data collection</a>. This page adds no scripts, forms, analytics, advertisements or externally embedded media.</p>
+<p>Links open other sites only when you choose them. Those sites and your browser may process normal web-request data. Reading this website and running the app are separate activities. The text date below identifies this explanation; it will need review if the app's data handling changes.</p></section>
+  </main>
+  <footer><p>NetPulse · <a href="support-en.html">Help &amp; Support</a></p></footer>
+</body>
+</html>
